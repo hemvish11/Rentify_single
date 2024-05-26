@@ -68,7 +68,7 @@ function Seller() {
         let data = await fetch(`/api/user/properties/${currentUser._id}`);
 
         if (!data.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
+          throw new Error('Network response was not ok ');
         }
 
         data = await data.json();

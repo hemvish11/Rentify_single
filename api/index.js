@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import path from "path";
+import cors from "cors";
+
 
 dotenv.config();
 
@@ -17,13 +19,15 @@ app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "/client/dist")));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-})
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, "/client/dist")));
+
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+// })
 
 
 mongoose

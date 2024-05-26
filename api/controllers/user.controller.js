@@ -16,6 +16,7 @@ export const getAllProperties = async (req, res, next) => {
     try {
         const userData = await User.find({});
         if (!userData) {
+        
             return next(errorHandler(404, "User not found"));
         }
         const products = [];
